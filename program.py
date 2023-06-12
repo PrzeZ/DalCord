@@ -9,6 +9,7 @@ openai.api_key = 'YOUR_OPEN_AI_API_KEY'
 
 bot = commands.Bot(command_prefix='!', intents = discord.Intents.all())
 
+#COMMANDS TREE SYNC
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
@@ -20,7 +21,7 @@ async def on_ready():
 
 #COMMANDS TREE
 @bot.tree.command(name="generate")
-async def imagine(interaction: discord.Interaction, text: str):
+async def generate(interaction: discord.Interaction, text: str):
         await interaction.response.defer(ephemeral=False)
         url = generate_image(text)        
         await interaction.followup.send(url)
